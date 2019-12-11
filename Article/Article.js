@@ -163,9 +163,9 @@ expandBtn.textContent = firstParagraph, secondParagraph, thirdParagraph;
   /*Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.*/
 
 
-expandBtn.addEventListener('click', (x) =>{
-article.classList.toggle('article-open')
-});
+ expandBtn.addEventListener('click', (x) =>{
+ article.classList.toggle('article-open')
+ });
 
 /*Step 3: return the entire component.*/
 
