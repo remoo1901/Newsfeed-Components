@@ -140,7 +140,7 @@ article.appendChild(thirdP)
 article.appendChild(expandBtn)
 
 
-// add Class
+// add Classes
 
 article.classList.add("article")
 dateP.classList.add("date")
@@ -148,6 +148,15 @@ firstP.classList.add("firstPara")
 secondP.classList.add("secondPara")
 thirdP.classList.add("thirdPara")
 expandBtn.classList.add("expandButton")
+
+// add text contents
+
+articleTitle.textContent = title;
+dateP.textContent = date;
+
+expandBtn.textContent = firstParagraph, secondParagraph, thirdParagraph;
+
+
 
 
   /*Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.*/
