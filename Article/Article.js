@@ -109,7 +109,7 @@ const data = [
 */
 
  const articles = document.querySelector('.articles');
- 
+
 /*  Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.*/
 
  data.forEach((ele) => {
@@ -137,7 +137,7 @@ article.appendChild(dateP)
 article.appendChild(firstP)
 article.appendChild(secondP)
 article.appendChild(thirdP)
-article.appendChild(expandButton)
+article.appendChild(expandBtn)
 
 
 // add Class
