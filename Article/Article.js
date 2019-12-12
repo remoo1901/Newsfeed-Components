@@ -86,29 +86,197 @@ const data = [
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
+  
 ];
 
-/* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
-  
-  <div class="article">
-    <h2>{title of the article}</h2>
-    <p class="date">{date of the article}</p>
+const articles = document.querySelector('.articles');
 
-    {three separate paragraph elements}
+ function addData(title, date, p1, p2, p3) {
+   
+// create element content
 
-    <span class='expandButton'></span>
-  </div>
+ const article = document.createElement('div')
+ const articleTitle = document.createElement('h2')
+ const dateP = document.createElement("p")
+ const firstP = document.createElement("p")
+ const secondP = document.createElement("p")
+ const thirdP = document.createElement("p")
+ const expandSpan = document.createElement("span")
 
-  Hint: You will need to use createElement more than once here!
+  // setting up structure 
 
-  Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
 
-  Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
+article.appendChild(articleTitle)
+article.appendChild(dateP)
+article.appendChild(firstP)
+article.appendChild(secondP)
+article.appendChild(thirdP)
+article.appendChild(expandSpan)
 
-  Step 3: return the entire component.
 
-  Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
+// add Classes
 
-  Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
+article.classList.add("article")
+dateP.classList.add("date")
+//firstP.classList.add("firstPara")
+//secondP.classList.add("secondPara")
+//thirdP.classList.add("thirdPara")
+expandSpan.classList.add("expandButton")
 
+// add text contents
+
+articleTitle.textContent = title;
+dateP.textContent = date;
+firstP.textContent = p1;
+secondP.textContent = p2;
+thirdP.textContent = p3;
+expandSpan.textContent = "click here"
+
+  /*Step 2: Add an event listener to the expandButton span.
+   This event listener should toggle the class 'article-open'
+    on the 'article' div.*/
+
+
+    expandSpan.addEventListener('click', (x) =>{
+      article.classList.toggle('article-open')
+});
+
+/*Step 3: return the entire component.*/ 
+// return the entire div  (class article)
+
+return article;
+ }  
+
+/*  Step 4: Map over the data, creating a component for each 
+oject and add each component to the DOM as children of the 
+'articles' div.*/
+
+data.forEach((ele) => {
+  return articles.appendChild(addData(ele.title, ele.date,
+     ele.firstParagraph, ele.secondParagraph, ele.thirdParagraph))
+
+});
+
+/*
+Step 5: Add a new article to the array. Make sure it is in
+ the same format as the others. Refresh the page to see the
+  new article.
 */
+
+const additionalArticles =[{
+
+title: 'first new Article',
+date:  'Dec, 11, 2019',
+firstParagraph:`is simply dummy text of the printing and
+  typesetting industry. Lorem Ipsum has been the industry'
+  standard dummy text ever since the 1500s, when an unknown
+   printer took a galley of type and scrambled it to make a 
+   type specimen book. It has survived not only five centuries
+   , but also the leap into electronic typesetting, remaining 
+   essentially unchanged. It was popularised in the 1960s with
+  the release of Letraset sheets containing Lorem Ipsum 
+  passages, and more recently with desktop publishing software
+   like Aldus PageMaker including versions of Lorem Ipsum.`,
+
+secondParagraph: `is simply dummy text of the printing and
+typesetting industry. Lorem Ipsum has been the industry'
+s standard dummy text ever since the 1500s, when an unknown
+ printer took a galley of type and scrambled it to make a 
+ type specimen book. It has survived not only five centuries
+ , but also the leap into electronic typesetting, remaining 
+ essentially unchanged. It was popularised in the 1960s with
+  the release of Letraset sheets containing Lorem Ipsum 
+  passages, and more recently with desktop publishing software
+like Aldus PageMaker including versions of Lorem Ipsum.`,
+
+thirdParagraph: `is simply dummy text of the printing and
+typesetting industry. Lorem Ipsum has been the industry'
+s standard dummy text ever since the 1500s, when an unknown
+ printer took a galley of type and scrambled it to make a 
+ type specimen book. It has survived not only five centuries
+ , but also the leap into electronic typesetting, remaining 
+ essentially unchanged. It was popularised in the 1960s with
+  the release of Letraset sheets containing Lorem Ipsum 
+  passages, and more recently with desktop publishing software
+like Aldus PageMaker including versions of Lorem Ipsum.`
+},
+{
+title: 'Second new Article',
+date:  'Dec, 11, 2019',
+firstParagraph:`is simply dummy text of the printing and
+ typesetting industry. Lorem Ipsum has been the industry'
+ s standard dummy text ever since the 1500s, when an unknown
+  printer took a galley of type and scrambled it to make a 
+  type specimen book. It has survived not only five centuries
+  , but also the leap into electronic typesetting, remaining 
+  essentially unchanged. It was popularised in the 1960s with
+   the release of Letraset sheets containing Lorem Ipsum 
+   passages, and more recently with desktop publishing software
+ like Aldus PageMaker including versions of Lorem Ipsum.`,
+
+ secondParagraph: `is simply dummy text of the printing and
+typesetting industry. Lorem Ipsum has been the industry'
+s standard dummy text ever since the 1500s, when an unknown
+ printer took a galley of type and scrambled it to make a 
+ type specimen book. It has survived not only five centuries
+ , but also the leap into electronic typesetting, remaining 
+ essentially unchanged. It was popularised in the 1960s with
+  the release of Letraset sheets containing Lorem Ipsum 
+  passages, and more recently with desktop publishing software
+like Aldus PageMaker including versions of Lorem Ipsum.`,
+
+thirdParagraph: `is simply dummy text of the printing and
+typesetting industry. Lorem Ipsum has been the industry'
+s standard dummy text ever since the 1500s, when an unknown
+ printer took a galley of type and scrambled it to make a 
+ type specimen book. It has survived not only five centuries
+ , but also the leap into electronic typesetting, remaining 
+ essentially unchanged. It was popularised in the 1960s with
+  the release of Letraset sheets containing Lorem Ipsum 
+  passages, and more recently with desktop publishing software
+like Aldus PageMaker including versions of Lorem Ipsum.`
+},
+
+{
+  title: 'Third new Article',
+  date:  'Dec, 11, 2019',
+  firstParagraph:`is simply dummy text of the printing and
+   typesetting industry. Lorem Ipsum has been the industry'
+   s standard dummy text ever since the 1500s, when an unknown
+    printer took a galley of type and scrambled it to make a 
+    type specimen book. It has survived not only five centuries
+    , but also the leap into electronic typesetting, remaining 
+    essentially unchanged. It was popularised in the 1960s with
+     the release of Letraset sheets containing Lorem Ipsum 
+     passages, and more recently with desktop publishing software
+   like Aldus PageMaker including versions of Lorem Ipsum.`,
+  
+   secondParagraph: `is simply dummy text of the printing and
+  typesetting industry. Lorem Ipsum has been the industry'
+  s standard dummy text ever since the 1500s, when an unknown
+   printer took a galley of type and scrambled it to make a 
+   type specimen book. It has survived not only five centuries
+   , but also the leap into electronic typesetting, remaining 
+   essentially unchanged. It was popularised in the 1960s with
+    the release of Letraset sheets containing Lorem Ipsum 
+    passages, and more recently with desktop publishing software
+  like Aldus PageMaker including versions of Lorem Ipsum.`,
+  
+  thirdParagraph: `is simply dummy text of the printing and
+  typesetting industry. Lorem Ipsum has been the industry'
+  s standard dummy text ever since the 1500s, when an unknown
+   printer took a galley of type and scrambled it to make a 
+   type specimen book. It has survived not only five centuries
+   , but also the leap into electronic typesetting, remaining 
+   essentially unchanged. It was popularised in the 1960s with
+    the release of Letraset sheets containing Lorem Ipsum 
+    passages, and more recently with desktop publishing software
+  like Aldus PageMaker including versions of Lorem Ipsum.`
+  }
+];
+
+additionalArticles.map((x) => {
+  return articles.appendChild(addData(x.title, x.date,
+     x.firstParagraph, x.secondParagraph, 
+     x.thirdParagraph))
+})
